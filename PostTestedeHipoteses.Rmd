@@ -13,50 +13,50 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Introdução
 
-De maneira geral, existem duas grandes áreas na Estatística: a estimação de parâmetros, para mais informações sobre estimação, verifique nosso post sobre [função de Verossimilhança](https://observatorioobstetricobr.org/livro-e-tutoriais/funcao-de-verossimilhanca/), e o teste de hipóteses. Em particular, o teste de hipoteses consiste em avaliar uma afirmação a respeito de um parâmetro (média, variância, proporção, etc.) ou um conjunto de parâmetros. Tal afirmação recebe o nome de de Hipótese Nula $(H_0)$, a afirmação alternativa recebe o nome de Hipótese Alternativa $(H_1)$.
+De maneira geral, existem duas grandes áreas na inferência Estatística: a estimação de parâmetros, para mais informações sobre estimação, verifique nosso post sobre [função de Verossimilhança](https://observatorioobstetricobr.org/livro-e-tutoriais/funcao-de-verossimilhanca/), e o teste de hipóteses. Em particular, o teste de hipoteses consiste em avaliar uma afirmação a respeito de um parâmetro (média, variância, proporção, etc.) ou um conjunto de parâmetros. Tal afirmação recebe o nome de de Hipótese Nula (Denotado por $H_0$), a afirmação alternativa recebe o nome de Hipótese Alternativa (Denotado por $H_1$).
 
-Para deixar essa ideia um pouco mais clara, suponha que queremos saber qual marca, A ou B, de um determinado tipo de blusa dura mais tempo. Conseguimos reescrever esse problema na forma de um sistema de hipóteses, a saber:
+Para deixar essa ideia um pouco mais clara, suponha que queremos saber se uma determinada marca de blusa *A*, possui um tempo médio de duração (Denotado por $\theta$) igual ou superior a 5 anos. Conseguimos reescrever essa indagação na forma de um sistema de hipóteses, a saber:
 
-
-```{r echo = F,fig.align = 'center',out.width = 300}
+```{r echo = F,fig.align = 'center',out.width = 100}
 knitr::include_graphics("img/ExemploHipoteses.png")
 ```
 
-Para realizar o teste, assumimos que é possível obter uma amostra aleatória $X_1,...,X_n$ de uma distribuição $f(.;\theta)$.
+Para realizar o teste, assumimos que é possível obter uma amostra aleatória de blusas da marca *A*, $X_1,...,X_n$, de uma distribuição $f(.;\theta)$.
 
-Tambem é necessário definir a estatística de teste $(T)$ e região de rejeição $(R)$. Estatística de teste é um valor calculado a partir da amostra, seu valor define a regra de rejeição para uma hipótese, ele mostra o quanto seus dados observados correspondem à distribuição esperada sob a hipótese nula desse teste estatístico. Tomemos mais um exemplo: seja $X_1,...,X_n$ uma amostra aleatória do produto de marca A, obtidos de uma distribuição $f(.;\theta)$, onde $\theta$ é o parâmetro tempo de duração médio. Estamos interessados em saber se o tempo de duração da marca A é igual ou maior que 5 anos, ou em outras palavras $H_0 : \theta \geq 5$. Um possível teste seria rejeitar $H_0$ se $\overline{x} < 5 - 10/\sqrt{n}$, onde $\overline{x}$ é a estatística de teste $T$ e um estimador de $\theta$. Formalmente, chamamos esse conjunto de possíveis resultados, para o qual se rejeita $H_0$, de região crítica. Assumiremos $\delta$ como representação do procedimento de testes de hipótese no dercorrer do post.
+Tambem é necessário definir a estatística de teste $(T)$ e região de rejeição $(R)$. Estatística de teste é um valor calculado a partir da amostra, seu valor define a regra de rejeição para uma hipótese, ele mostra o quanto seus dados observados correspondem à distribuição esperada sob a hipótese nula desse teste estatístico, denotamos por $R$ os possíveis valores para $\theta$ em que, dado a regra de rejeição, rejeitamos $H_0$.
+Estamos interessados em saber se o tempo de duração da marca A é igual ou maior que 5 anos, ou em outras palavras $H_0 : \theta \geq 5$. Um possível teste seria rejeitar $H_0$ se $\overline{x} < 5 - 10/\sqrt{n}$, onde $\overline{x}$ é a estatística de teste $T$, nesse caso nossa estatística acaba por ser o estimador de $\theta$, digamos média amostral. No exemplo em questão, nossa região de rejeição são todos os possíveis valores de $\overline{x} < 5- 10/\sqrt{n}$. Assumiremos $\delta$ como representação do procedimento de testes de hipótese no dercorrer do post.
 
- Um teste pode ser tanto aleatório quanto não aleatório. O exemplo anterior, por exemplo, é um ótimo exemplo de teste não aleatório. Já um teste aleatório poderia ser "jogue uma moeda para o alto, caso cara rejeite a hipótese nula".
+Um teste pode ser tanto aleatório quanto não aleatório. O exemplo anterior, por exemplo, é um ótimo exemplo de teste não aleatório. Já um teste aleatório poderia ser "jogue uma moeda para o alto, caso cara rejeite a hipótese nula". 
 
-#### Função Poder e Tipos de Erros
+Tão importante quanto conhecer os tipos de teste é a verificação da "qualidade" de um teste, ou o quão correto estamos ao rejeitar uma hipótese.
 
-Para cada teste aplicado sobre uma amostra obtida de uma distribuição $f(.;\theta)$ onde $\theta \in \Theta$ em que $\Theta$ representa o espaço paramétricos de possíveis valores para $\theta$, teremos uma função poder associada. 
-  
-  + Função Poder: suponha um procedimento de teste $\delta$. A função $\pi(\theta|\delta)$ é chamada função poder do teste $\delta$. Se $S_1$ denota a região de rejeição de $\delta$, então a função poder é determinada pela relação: 
+#### Função Poder e Tipos de Erros\\
 
- 
+
+Para cada teste aplicado sobre uma amostra obtida de uma distribuição $f(.;\theta)$ onde $\theta \in \Theta$ em que $\Theta$ representa o espaço paramétricos de possíveis valores para $\theta$, teremos uma função poder associada. A função poder define a probabilidade, dado um valor de $\theta$, de rejeitar $H_0$ dado que a mesma é falsa. Suponha um procedimento de teste $\delta$, ou seja, possuímos uma regra de rejeição e uma estatística de teste. A função $\pi(\theta|\delta)$ é chamada função poder do teste $\delta$. Se $S_1$ denota a região de rejeição de $\delta$, então a função poder é determinada pela relação:
+
 ```{r echo = F,fig.align = 'left',out.width = 100}
 knitr::include_graphics("img/funcaopoder.png")
 #<img src="img/funcaopoder.png" width="160"/> 
 ```
 
-  Se $\delta$ é descrito em função da estatística de teste $T$ e da região de rejeição $R$, então 
+Se $\delta$ é descrito em função da estatística de teste $T$ e da região de rejeição $R$, então
 
 ```{r echo = F,fig.align = 'left',out.width = 100}
 knitr::include_graphics("img/funcaopoder2.png")
 #<img src="img/funcaopoder2.png" width="160"/>
 ```
- para todo $\theta \in \Theta$.
-  
-  Sendo a função poder, a probabilidade de rejeitar a hipótese nula dado os possíveis valores do parâmetro em estudo $\theta$, buscamos a o teste $\delta$ que minimize $\pi()$ para os valores de $\theta$ pertencentes ao espaço paramétrico de $H_0$ e a maximize quando $\theta$ pertence ao espaço paramétrico de $H_1$, ou em outras palavras, $\pi(\theta \in \Theta_0|\delta) = 0$ e $\pi(\theta \in \Theta_1|\delta) = 1$, onde $\Theta_0$ representa o espaço paramétrico sob a hipótese nula e $\Theta_1$ o espaço paramétrico sob a hipótese alternativa. Retomando o exemplo inicial onde rejeitamos a hipótese nula para $\overline{x} < 5 - 10/\sqrt{n}$, suponha que uma amostra aleatória do produto A, $x_1,...,x_{20}$ foi obtida de uma distribuição Normal$(\theta,\sigma^2)$, com $\sigma^2$ conhecido e igual a 2, onde $\overline{x}$ é definido como o estimador de máxima verossimilhaça para média amostral. Obtendo, assim, a seguinte função poder,
-  
+
+para todo $\theta \in \Theta$.
+
+Sendo a função poder, a probabilidade de rejeitar a hipótese nula dado os possíveis valores do parâmetro em estudo $\theta$, buscamos a o teste $\delta$ que minimize $\pi()$ para os valores de $\theta$ pertencentes ao espaço paramétrico de $H_0$ e a maximize quando $\theta$ pertence ao espaço paramétrico de $H_1$, ou em outras palavras, $\pi(\theta \in \Theta_0|\delta) = 0$ e $\pi(\theta \in \Theta_1|\delta) = 1$, onde $\Theta_0$ representa o espaço paramétrico sob a hipótese nula e $\Theta_1$ o espaço paramétrico sob a hipótese alternativa. Retomando o exemplo inicial onde rejeitamos a hipótese nula para $\overline{x} < 5 - 10/\sqrt{n}$, suponha que uma amostra aleatória do produto A, $X_1,...,X_{20}$ foi obtida de uma distribuição Normal$(\theta,\sigma^2)$, com $\sigma^2$ conhecido e igual a 2, onde $\overline{x}$ é o estimador de máxima verossimilhaça para média amostral. Obtendo, assim, a seguinte função poder,
 
 ```{r echo = F,fig.align = 'center',out.width = 200}
 knitr::include_graphics("img/poderex.png")
 #<img src="img/poderex.png" width="300"/>
 ```
 
-onde $Z$ segue uma distribuição Normal$(0,1)$, tendo assim:
+onde $Z$ segue uma distribuição Normal$(0,1)$, obtendo assim:
 
 ```{r echo = F,fig.align = 'center',out.width = 200}
 knitr::include_graphics("img/podergrafico.png")
@@ -65,9 +65,9 @@ knitr::include_graphics("img/podergrafico.png")
 
 Como dito inicialmente, testamos se a hipótese nula é falsa e, portanto, se a hipótese alternativa é verdadeira, ou vice-versa. Nesse contexto, dois tipos de erros podem ser cometidos:
 
-+ Erro do Tipo I: rejeitar a hipótese nula quando a mesma é verdadeira. 
+-   Erro do Tipo I: rejeitar a hipótese nula quando a mesma é verdadeira.
 
-+ Erro do Tipo II: aceitar a hipótese nula quando a mesma é falsa.
+-   Erro do Tipo II: aceitar a hipótese nula quando a mesma é falsa.
 
 ### Hipótese simples
 
@@ -75,7 +75,7 @@ As hipóteses de um teste podem ser da forma simples ou composta. Uma hipótese 
 
 #### Testes de razão de verossimilhança simples
 
-Suponha que $X_1,...,X_n$  uma amostra aleatória de uma distribuição $f_0(.;\theta_0)$ ou $f_1(.;\theta_1)$. Um teste de $H_0: \theta = \theta_0$ vs. $H_1: \theta = \theta_1$ é um teste da razão de verossimilhança se é definido como: onde $k$ é uma constante não negativa e $L(x_1,…,x_n)$ é a função de verossimilhança associada à função de densidade $f(\cdot)$. Rejeitamos a hipótese nula para um valor de $\lambda = L_0(\cdot)/L_1(\cdot)$ inferior a k, pois, seguindo a linha de raciocínio da razão das funções, $L_1(\cdot)$ é maior que $L_0(\cdot)$, nos dando mais indícios de que a amostra venha de uma população com distribuição $f_1(\cdot)$ em vez de uma $f_0(\cdot)$. Exemplo: seja $X_1,…,X_n$ uma amostra aleatória de uma distribuição $N(\theta,1)$ na qual queremos testar $H_0: \theta = 0 \times H_1: \theta = 1$. Tendo a função de verossimilhança como:
+Suponha que $X_1,...,X_n$ uma amostra aleatória de uma distribuição $f_0(.;\theta_0)$ ou $f_1(.;\theta_1)$. Um teste de $H_0: \theta = \theta_0$ vs. $H_1: \theta = \theta_1$ é um teste da razão de verossimilhança se é definido como: onde $k$ é uma constante não negativa e $L(x_1,…,x_n)$ é a função de verossimilhança associada à função de densidade $f(\cdot)$. Rejeitamos a hipótese nula para um valor de $\lambda = L_0(\cdot)/L_1(\cdot)$ inferior a k, pois, seguindo a linha de raciocínio da razão das funções, $L_1(\cdot)$ é maior que $L_0(\cdot)$, nos dando mais indícios de que a amostra venha de uma população com distribuição $f_1(\cdot)$ em vez de uma $f_0(\cdot)$. Exemplo: seja $X_1,…,X_n$ uma amostra aleatória de uma distribuição $N(\theta,1)$ na qual queremos testar $H_0: \theta = 0 \times H_1: \theta = 1$. Tendo a função de verossimilhança como:
 
 ```{r echo = F,fig.align = 'center',out.width = 200}
 knitr::include_graphics("img/exemplotrv1.png")
@@ -89,18 +89,17 @@ knitr::include_graphics("img/exemplotrv.png")
 #<img src="img/exemplotrv.png" width="400"/>
 ```
 
-
 Ou seja, rejeitamos $H_0$ para um somatório de $x$ maior que alguma constante k\*.
 
 #### Testes Mais Poderosos
 
-Antes de falar sobre os testes mais poderosos, uma definição deve ser esclarecida: o tamanho do teste. Vamos admitir um teste $\delta$ cuja hipótese nula seja $H_0: \theta \in \Theta_0$ ($H_0 : \theta < \theta_0$, por exemplo), em que  $\theta \subset \Theta_0$ (ou seja, $\Theta_0$ é um subconjunto do espaço paramétrico $\Theta$). Assim, o tamanho do teste é definido como <img src="img/tamanhodoteste.png" width="80"/> . Esclarecida essa definição, daremos prosseguimento ao assunto. Assim como já comentado, queremos um teste $\delta$ em que $\pi(\theta_0|\delta)$ = P[Rejeitar $H_0$ \| $H_0$ verdadeiro] seja a menor possível e que $\pi(\theta_1)$ = P[Rejeitar $H_0$ \| $H_0$ falsa] seja a maior possível. Em um mundo perfeito, $\pi(\theta_1)$ = 1 e $\pi(\theta_0)$ = 0, isto é, quando os erros do tipo I e II são minimizados simultâneamente. Entretanto, na prática, uma das metodologias aplicadas de forma a definir o melhor teste possível é minimizar o erro do tipo II fixando o erro do tipo I.
+Antes de falar sobre os testes mais poderosos, uma definição deve ser esclarecida: o tamanho do teste. Vamos admitir um teste $\delta$ cuja hipótese nula seja $H_0: \theta \in \Theta_0$ ($H_0 : \theta < \theta_0$, por exemplo), em que $\theta \subset \Theta_0$ (ou seja, $\Theta_0$ é um subconjunto do espaço paramétrico $\Theta$). Assim, o tamanho do teste é definido como <img src="img/tamanhodoteste.png" width="80"/> . Esclarecida essa definição, daremos prosseguimento ao assunto. Assim como já comentado, queremos um teste $\delta$ em que $\pi(\theta_0|\delta)$ = P[Rejeitar $H_0$ \| $H_0$ verdadeiro] seja a menor possível e que $\pi(\theta_1)$ = P[Rejeitar $H_0$ \| $H_0$ falsa] seja a maior possível. Em um mundo perfeito, $\pi(\theta_1)$ = 1 e $\pi(\theta_0)$ = 0, isto é, quando os erros do tipo I e II são minimizados simultâneamente. Entretanto, na prática, uma das metodologias aplicadas de forma a definir o melhor teste possível é minimizar o erro do tipo II fixando o erro do tipo I.
 
-**Teste Mais Poderoso**: Um teste $\delta*$ em que $H_0: \theta = \theta_0$ contra $H_1: \theta = \theta_1$ é definido como teste mais poderoso de tamanho $\alpha$, com $0 <  \alpha < 1$, se e somente se: 
+**Teste Mais Poderoso**: Um teste $\delta*$ em que $H_0: \theta = \theta_0$ contra $H_1: \theta = \theta_1$ é definido como teste mais poderoso de tamanho $\alpha$, com $0 < \alpha < 1$, se e somente se:
 
-i. $\pi(\theta|\delta*) = \alpha$; 
+i.  $\pi(\theta|\delta*) = \alpha$;
 
-ii. $\pi(\theta_1|\delta*)$ \> $\pi(\theta_1|\delta)$, para qualquer outro teste $\delta$ onde $\pi(\theta_0|\delta)$ \< $\alpha$. 
+ii. $\pi(\theta_1|\delta*)$ \> $\pi(\theta_1|\delta)$, para qualquer outro teste $\delta$ onde $\pi(\theta_0|\delta)$ \< $\alpha$.
 
 Ou seja, podemos considerar um teste $\delta*$ como sendo o teste mais poderoso se, para qualquer outro teste de tamanho $\alpha$ ou menor do que $\alpha$, ele possuir o maior poder.
 
@@ -136,7 +135,6 @@ knitr::include_graphics("img/neyman3.png")
 #<img src="img/neyman3.png" width="220"/>
 ```
 
-
 dado que $\theta_1 > \theta_0$ e $\lambda(x)$ é uma função crescente de $\overline{x}_n$,segue que $\lambda(x) > k$ se e somente se $\overline{x}_n > k_1$, sendo $k_1$ uma constante. Então, o teste mais poderoso de tamanho $\alpha$ é da forma
 
 ```{r echo = F,fig.align = 'center',out.width = 160}
@@ -151,10 +149,10 @@ knitr::include_graphics("img/neyman5.png")
 #<img src="img/neyman5.png" width="450"/>
 ```
 
-
 Observe que o teste mais poderoso de tamanho $\alpha$ é independente de $\theta_1$ quando $\theta_1 > \theta_0$, e é, portanto, o teste mais poderoso para verificar se $\theta = \theta_0$ contra $\theta > \theta_0$.
 
 ### Testes para hipóteses compostas
+
 Generalizaremo-los para os teste de hipóteses compostos. A princípio, começaremos com o método mais geral para testar hipóteses, que, geralmente, não é o que fornece resultados mais precisos, mas é aplicável em todo tipo de situação. Considere $X_1,...,X_n$ uma amostra aleatória obtida de uma função de densidade $f(x;\theta)$, $\theta \in \Theta$, e um teste do tipo $H_0: \theta \in \Theta_0$ contra $H_1: \theta \in \Theta_1 = \Theta - \Theta_0$.
 
 -   **Teste de Razão de Verossimilhança Generalizada**: suponha $L(\theta;X_1,...,X_n)$ a função de verossimilhança para a amostra $X_1,...,X_n$. O teste de razão de verossimilhança generalizada, denotado por $\lambda$, é definido como:
@@ -173,14 +171,12 @@ knitr::include_graphics("img/ump1.png")
 #<img src="img/ump1.png" width="170"/>
 ```
 
-
 ```{r echo = F,fig.align = 'left',out.width = 110}
 knitr::include_graphics("img/ump2.png")
 #<img src="img/ump2.png" width="170"/>
 ```
 
-    
-  para todo $\theta \in \Theta - \Theta_0$ e para qualquer teste $\delta$ de tamanho menor ou igual a $\alpha$.
+para todo $\theta \in \Theta - \Theta_0$ e para qualquer teste $\delta$ de tamanho menor ou igual a $\alpha$.
 
 ### Conclusão
 
