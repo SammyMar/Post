@@ -197,8 +197,20 @@ Onde $\lambda$ se torna uma função da amostra definida no intervalo [0,1]. Ass
 
 para todo $\theta \in \Theta - \Theta_0$ e para qualquer teste $\delta$ de tamanho menor ou igual a $\alpha$.
 
-Suponha o exemplo inicial onde testamos $H_0: \theta \geq 5$ versus $H_1: \theta < 5$, sendo $\theta$ o tempo de duração médio das blusas da marca *A*, e que possuimos uma amostra $X_1,...X_{20} \sim Normal(\theta,1)$. Podemos obter o teste UMP para $\alpha = 0.05$ da seguinte forma:
+Suponha o exemplo onde testamos $H_0: \theta \geq 0.5$ versus $H_1: \theta < 0.5$, sendo $\theta$ a proporção de blusas com pouco tempo de duração por culpa da fábrica, e que possuimos uma amostra $X_1,...X_{30} \sim Bernoulli(\theta)$, onde $\sum_{i=1}^{30}X_i = 12$. Primeiro, faremos de forma geral onde $0.5 = \theta_0$ e depois substituiremos pelos valores propostos. Então, o valor que maximímiza a função de verossimilhança no espaço paramétrico geral e sob $H_0$ seguem da forma:
 
+```{r echo = F,fig.align = 'center',out.width = 370}
+knitr::include_graphics("img/exemploump1.png")
+#<img src="img/trvg.png" width="350"/>
+```
+
+Assim,
+```{r echo = F,fig.align = 'center',out.width = 200}
+knitr::include_graphics("img/exemploump2.png")
+#<img src="img/trvg.png" width="350"/>
+```
+
+Substituindo pelos valores propostos no problema então obtemos que $\lambda = 2.33\times 10^{-9}$, pois $0.5 \geq \sum X_i/n$, rejeitando $H_0$ para um $ 2.33\times 10^{-9} < k$. É possível notar, porém, que $\lambda$ é função de $\sum X_i$ e que $lambda$ é descrescente conforme incrementado o valor de $\sum X_i$, logo rejeitamos $H_0$ para um $\sum X_i > k'$. Como explicado então, o teste UMP para o exemplo é aquele em que $\sup\limits_{0.5 \leq \theta \leq 1}P(\sum X_i > k'\mid \theta) = \alpha$ ou  $P(\sum X_i > k'\mid \theta \geq 0.5) = \alpha$
 ### Conclusão
 
 Na literatura, podemos encontrar formas diferentes de testar hipóteses das vistas neste tutorial, mas elas fogem do escopo deste post e por isso não foram abordadas. Ainda assim, fomos capazes de aprender alguns dos métodos para testar hipóteses estatísticas mais utilizados, além de métodos para achar o melhor tipo de teste. Espero que o texto tenha sido esclarecedor e de ajuda ao leitor. Para mais informações ou dúvidas, escreva-nos em : [comunicacao\@observatorioobstetricobr.org](mailto:comunicacao@observatorioobstetricobr.org){.email}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.1)  1 MAR 2023 18:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.1)  2 MAR 2023 15:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,20 +560,25 @@ File: img/trvg.png Graphic file (type png)
 <use img/trvg.png>
 Package pdftex.def Info: img/trvg.png  used on input line 461.
 (pdftex.def)             Requested size: 200.75287pt x 99.29712pt.
-[7 <./img/trvg.png>] (./PostTestedeHipoteses.aux) ) 
+<img/exemploump1.png, id=86, 585.68813pt x 389.20406pt>
+File: img/exemploump1.png Graphic file (type png)
+<use img/exemploump1.png>
+Package pdftex.def Info: img/exemploump1.png  used on input line 502.
+(pdftex.def)             Requested size: 371.40736pt x 246.80927pt.
+[7 <./img/trvg.png>] [8 <./img/exemploump1.png>] (./PostTestedeHipoteses.aux) ) 
 Here is how much of TeX's memory you used:
- 11636 strings out of 477984
- 183778 string characters out of 5837988
+ 11648 strings out of 477984
+ 184036 string characters out of 5837988
  1864382 words of memory out of 5000000
- 31604 multiletter control sequences out of 15000+600000
+ 31614 multiletter control sequences out of 15000+600000
  553205 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,7n,90p,470b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/R2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on PostTestedeHipoteses.pdf (7 pages, 321690 bytes).
+Output written on PostTestedeHipoteses.pdf (8 pages, 345736 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
