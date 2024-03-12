@@ -6,7 +6,7 @@ De maneira geral, existem duas grandes áreas na inferência Estatística: a est
 Para deixar essa ideia um pouco mais clara, suponha que queremos saber se uma determinada marca de blusa *A*, possui um tempo médio de duração (Denotado por $\theta$) igual ou superior a 5 anos. Conseguimos reescrever essa indagação na forma de um sistema de hipóteses, a saber:
 
 
-<img src="img/ExemploHipoteses.png" width="110"/> 
+<img src="img/ExemploHipoteses.png" width="210"/> 
 
 Para realizar o teste, assumimos que é possível obter uma amostra aleatória de blusas da marca *A*, $X_1,...,X_n$, de uma distribuição $f(.;\theta)$.
 
@@ -34,7 +34,7 @@ Sendo a função poder, a probabilidade de rejeitar a hipótese nula dado os pos
 
 Retomando o exemplo inicial onde rejeitamos a hipótese nula para $\overline{x} < 5 - 10/\sqrt{n}$, suponha que uma amostra aleatória do produto A, $X_1,...,X_{20}$ foi obtida de uma distribuição Normal$(\theta,\sigma^2)$, com $\sigma^2$ conhecido e igual a 2, onde $\overline{x}$ é o estimador de máxima verossimilhaça para média amostral. Obtendo, assim, a seguinte função poder,
 
-<img src="img/poderex.png" width="300"/>
+<img src="img/poderex.png" width="340"/>
 
 
 onde $Z$ segue uma distribuição Normal$(0,1)$, obtendo assim:
@@ -51,12 +51,12 @@ Ao considerar como possível escolha, rejeição ou não rejeição da hipótese
 
 É possível indicar a probabilidade de ocorrência de cada erro, para o exemplo trabalhado na sessão, por meio da seguinte notação para o Erro do Tipo I:
 
-<img src="img/erroa.png" width="200"/>
+<img src="img/erroa.png" width="300"/>
 
 
 e para o Erro do Tipo II:
 
-<img src="img/errob.png" width="200"/>
+<img src="img/errob.png" width="300"/>
 
 
 Dado que $\beta$ é a probabilidade de não rejeitar $H_0$ quando a mesma é falsa, 1 - $\beta$ pode ser definido como a probabilidade de rejeitar $H_0$ quando falsa, sendo também nossa função poder.
@@ -67,24 +67,24 @@ Dado que $\beta$ é a probabilidade de não rejeitar $H_0$ quando a mesma é fal
 
 As hipóteses de um teste podem ser da forma simples ou composta. Uma hipótese simples, é aquela onde o espaço de possíveis valores de $\theta$ é definido em apenas um ponto, dessa forma a distribuição do parâmetro é completamente especificada ($H_0: \theta = \theta_0, f(.;\theta_0)$, ou ainda $H_0: \theta = 5$). Por outro lado, uma hipótese composta é aquela cuja distribuição não é especificada completamente e $\theta$ pode assumir um conjunto de valores $\Theta$ ($H_0: \theta \in \Theta$, $f(.;\Theta)$, ou $H_0: \theta \geq 5$). Uma forma de introduzir o tema, é observar primeiro o contexto de Hipóteses simples versus Hipótese simples, ou em outras palavras:
 
-<img src="img/simple.png" width="120"/>
+<img src="img/simple.png" width="250"/>
 
 
 #### Testes de razão de verossimilhança simples
 
 Suponha que temos uma amostra aleatória $X_1,...,X_n$ de uma distribuição com parâmetro $\theta$ que pode ser $\theta_0$ ou $\theta_1$. Para testar a hipótese nula $H_0: \theta = \theta_0$ versus a hipótese alternativa $H_1: \theta = \theta_1$, podemos utilizar um teste de razão de verossimilhança. Esse teste envolve a comparação da função de verossimilhança $L(x_1,…,x_n)$ associada à densidade $f(\cdot)$, utilizando a razão $\lambda = L_0(\cdot)/L_1(\cdot)$, onde $L_0(\cdot)$ e $L_1(\cdot)$ representam as funções de verossimilhança quando $\theta = \theta_0$ e $\theta = \theta_1$, respectivamente. Se $\lambda$ é menor do que uma constante não negativa $k$, rejeitamos a hipótese nula, sugerindo que a amostra pode vir de uma população com distribuição $f_1(\cdot)$ em vez de $f_0(\cdot)$. Por exemplo, podemos testar a duração da marca de blusa, agora digamos $H_0: \theta = 5$ versus $H_1: \theta = 7$ (onde $\theta$ ainda representa o tempo de duração médio em anos), para uma amostra aleatória de uma distribuição normal $N(\theta,1)$, utilizando a função de verossimilhança.
 
-<img src="img/exemplotrv1.png" width="200"/>
+<img src="img/exemplotrv1.png" width="300"/>
 
 
 Obtendo o teste de razão de verossimilhança,
 
-<img src="img/exemplotrv.png" width="250"/>
+<img src="img/exemplotrv.png" width="400"/>
 
 
 Que pode ser reescrito como
 
-<img src="img/exemplotrv2.png" width="150"/>
+<img src="img/exemplotrv2.png" width="300"/>
 
 
 Ou seja, rejeitamos $H_0$ para um somatório de $X_i$ maior que alguma constante k\*. Suponha uma amostra de $\sum^6_{i=1} X_i = 36$, rejeitamos $H_0$ se $36 > (12 - \log(k))/2$ ou $k < 8,75\times 10^{-27}$, note que, para a amostra em questão, temos um valor para $\lambda$ extremamente baixo, logo podemos rejeitar a hipótese de tempo de duração igual a 5 anos, optando pela alternativa de 7 anos de duração. Ou em outras palavras, os dados obtidos pela amostra mostram indícios de que a distribuição original da população não siga a proposta pela hipótese nula, e sim pela alternativa.
@@ -107,7 +107,7 @@ O lemma a seguir é muito útil para encontrar testes mais poderosos.
 
 -   **Lemma Neyman-Pearson:** seja $X_1,...,X_n$ uma amostra aleatória de uma distribuição com densidade $f(x;\theta)$, onde $\theta$ pode assumir os valores $\theta_1$ ou $\theta_0$ e 0 \< $\alpha$ \< 1. Considere $k*$ uma constante positiva e C\* um subconjunto do espaço de valores para $X_i$. Assim,
 
-<img src="img/lemmapeason1.png" width="250"/>
+<img src="img/lemmapeason1.png" width="300"/>
 
 
 e $\lambda$ \> k\* se $(x_1,...,x_n) \in \overline{C}*$. Onde $C*$ é a região de rejeição e $\overline{C}*$ seu complementar.
@@ -162,7 +162,7 @@ Suponha o exemplo onde testamos $H_0: \theta \geq 0.5$ versus $H_1: \theta < 0.5
 
 
 Assim,
-<img src="img/exemploump2.png" width="350"/>
+<img src="img/exemploump2.png" width="400"/>
 
 
 Substituindo pelos valores propostos no problema então obtemos que $\lambda = 2.33\times 10^{-9}$, pois $0.5 \geq \sum X_i/n$, rejeitando $H_0$ para um $2.33\times 10^{-9} < k$. É possível notar, porém, que $\lambda$ é função de $\sum X_i$ e que $lambda$ é descrescente conforme incrementado o valor de $\sum X_i$, logo rejeitamos $H_0$ para um $\sum X_i > k'$. Como explicado então, o teste UMP para o exemplo é aquele em que $\sup\limits_{0.5 \leq \theta \leq 1}P(\sum X_i > k'\mid \theta) = \alpha$ ou  $P(\sum X_i > k'\mid \theta \geq 0.5) = \alpha$
