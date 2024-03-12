@@ -5,9 +5,8 @@ De maneira geral, existem duas grandes áreas na inferência Estatística: a est
 
 Para deixar essa ideia um pouco mais clara, suponha que queremos saber se uma determinada marca de blusa *A*, possui um tempo médio de duração (Denotado por $\theta$) igual ou superior a 5 anos. Conseguimos reescrever essa indagação na forma de um sistema de hipóteses, a saber:
 
-```{r echo = F,fig.align = 'center',out.width = 110}
-knitr::include_graphics("img/ExemploHipoteses.png")
-```
+
+<img src="img/ExemploHipoteses.png" width="110"/> 
 
 Para realizar o teste, assumimos que é possível obter uma amostra aleatória de blusas da marca *A*, $X_1,...,X_n$, de uma distribuição $f(.;\theta)$.
 
@@ -21,17 +20,13 @@ Tão importante quanto conhecer os tipos de teste é a verificação da "qualida
 
 Para cada teste aplicado sobre uma amostra obtida de uma distribuição $f(.;\theta)$ onde $\theta \in \Theta$ em que $\Theta$ representa o espaço paramétricos de possíveis valores para $\theta$, teremos uma função poder associada. A função poder define a probabilidade, dado um valor de $\theta$, de rejeitar $H_0$ dado que a mesma é falsa, ou seja, o quão acertivo foi nossa escolha dado o espaço paramétrico. Suponha um procedimento de teste $\delta$, ou seja, possuímos uma regra de rejeição e uma estatística de teste obtidos através de uma amostra aleatória. A função $\pi(\theta|\delta)$ é chamada função poder do teste $\delta$. Se $S_1$ denota a região de rejeição de $\delta$, então a função poder é determinada pela relação:
 
-```{r echo = F,fig.align = 'left',out.width = 100}
-knitr::include_graphics("img/funcaopoder.png")
-#<img src="img/funcaopoder.png" width="160"/> 
-```
+<img src="img/funcaopoder.png" width="160"/> 
+
 
 Se $\delta$ é descrito em função da estatística de teste $T$ e da região de rejeição $R$, então
 
-```{r echo = F,fig.align = 'left',out.width = 100}
-knitr::include_graphics("img/funcaopoder2.png")
-#<img src="img/funcaopoder2.png" width="160"/>
-```
+<img src="img/funcaopoder2.png" width="160"/>
+
 
 para todo $\theta \in \Theta$.
 
@@ -39,17 +34,13 @@ Sendo a função poder, a probabilidade de rejeitar a hipótese nula dado os pos
 
 Retomando o exemplo inicial onde rejeitamos a hipótese nula para $\overline{x} < 5 - 10/\sqrt{n}$, suponha que uma amostra aleatória do produto A, $X_1,...,X_{20}$ foi obtida de uma distribuição Normal$(\theta,\sigma^2)$, com $\sigma^2$ conhecido e igual a 2, onde $\overline{x}$ é o estimador de máxima verossimilhaça para média amostral. Obtendo, assim, a seguinte função poder,
 
-```{r echo = F,fig.align = 'center',out.width = 200}
-knitr::include_graphics("img/poderex.png")
-#<img src="img/poderex.png" width="300"/>
-```
+<img src="img/poderex.png" width="300"/>
+
 
 onde $Z$ segue uma distribuição Normal$(0,1)$, obtendo assim:
 
-```{r echo = F,fig.align = 'center',out.width = 200}
-knitr::include_graphics("img/podergrafico.png")
-#<img src="img/podergrafico.png" width="400"/>
-```
+<img src="img/podergrafico.png" width="400"/>
+
 Perceba que, para os valores de $\theta$ dentro do espaço paramétrico de $H_0$ ($\theta \geq 5$) o valor para função poder é 0.
 
 Ao considerar como possível escolha, rejeição ou não rejeição da hipótese nula, testamos uma hipótese contra a outra. Dentro deste cenário encontramos dois tipos de erros, os chamados:
@@ -60,17 +51,13 @@ Ao considerar como possível escolha, rejeição ou não rejeição da hipótese
 
 É possível indicar a probabilidade de ocorrência de cada erro, para o exemplo trabalhado na sessão, por meio da seguinte notação para o Erro do Tipo I:
 
-```{r echo = F,fig.align = 'center',out.width = 200}
-knitr::include_graphics("img/erroa.png")
-#<img src="img/podergrafico.png" width="400"/>
-```
+<img src="img/podergrafico.png" width="400"/>
+
 
 e para o Erro do Tipo II:
 
-```{r echo = F,fig.align = 'center',out.width = 200}
-knitr::include_graphics("img/errob.png")
-#<img src="img/podergrafico.png" width="400"/>
-```
+<img src="img/podergrafico.png" width="400"/>
+
 
 Dado que $\beta$ é a probabilidade de não rejeitar $H_0$ quando a mesma é falsa, 1 - $\beta$ pode ser definido como a probabilidade de rejeitar $H_0$ quando falsa, sendo também nossa função poder.
 
@@ -80,33 +67,25 @@ Dado que $\beta$ é a probabilidade de não rejeitar $H_0$ quando a mesma é fal
 
 As hipóteses de um teste podem ser da forma simples ou composta. Uma hipótese simples, é aquela onde o espaço de possíveis valores de $\theta$ é definido em apenas um ponto, dessa forma a distribuição do parâmetro é completamente especificada ($H_0: \theta = \theta_0, f(.;\theta_0)$, ou ainda $H_0: \theta = 5$). Por outro lado, uma hipótese composta é aquela cuja distribuição não é especificada completamente e $\theta$ pode assumir um conjunto de valores $\Theta$ ($H_0: \theta \in \Theta$, $f(.;\Theta)$, ou $H_0: \theta \geq 5$). Uma forma de introduzir o tema, é observar primeiro o contexto de Hipóteses simples versus Hipótese simples, ou em outras palavras:
 
-```{r echo = F,fig.align = 'center',out.width = 120}
-knitr::include_graphics("img/simple.png")
-#<img src="img/podergrafico.png" width="400"/>
-```
+<img src="img/podergrafico.png" width="400"/>
+
 
 #### Testes de razão de verossimilhança simples
 
 Suponha que temos uma amostra aleatória $X_1,...,X_n$ de uma distribuição com parâmetro $\theta$ que pode ser $\theta_0$ ou $\theta_1$. Para testar a hipótese nula $H_0: \theta = \theta_0$ versus a hipótese alternativa $H_1: \theta = \theta_1$, podemos utilizar um teste de razão de verossimilhança. Esse teste envolve a comparação da função de verossimilhança $L(x_1,…,x_n)$ associada à densidade $f(\cdot)$, utilizando a razão $\lambda = L_0(\cdot)/L_1(\cdot)$, onde $L_0(\cdot)$ e $L_1(\cdot)$ representam as funções de verossimilhança quando $\theta = \theta_0$ e $\theta = \theta_1$, respectivamente. Se $\lambda$ é menor do que uma constante não negativa $k$, rejeitamos a hipótese nula, sugerindo que a amostra pode vir de uma população com distribuição $f_1(\cdot)$ em vez de $f_0(\cdot)$. Por exemplo, podemos testar a duração da marca de blusa, agora digamos $H_0: \theta = 5$ versus $H_1: \theta = 7$ (onde $\theta$ ainda representa o tempo de duração médio em anos), para uma amostra aleatória de uma distribuição normal $N(\theta,1)$, utilizando a função de verossimilhança.
 
-```{r echo = F,fig.align = 'center',out.width = 200}
-knitr::include_graphics("img/exemplotrv1.png")
-  #<img src="img/exemplotrv1.png" width="300"/>
-```
+<img src="img/exemplotrv1.png" width="300"/>
+
 
 Obtendo o teste de razão de verossimilhança,
 
-```{r echo = F,fig.align = 'center',out.width = 250}
-knitr::include_graphics("img/exemplotrv.png")
-#<img src="img/exemplotrv.png" width="400"/>
-```
+<img src="img/exemplotrv.png" width="400"/>
+
 
 Que pode ser reescrito como
 
-```{r echo = F,fig.align = 'center',out.width = 150}
-knitr::include_graphics("img/exemplotrv2.png")
-#<img src="img/exemplotrv.png" width="400"/>
-```
+<img src="img/exemplotrv.png" width="400"/>
+
 
 Ou seja, rejeitamos $H_0$ para um somatório de $X_i$ maior que alguma constante k\*. Suponha uma amostra de $\sum^6_{i=1} X_i = 36$, rejeitamos $H_0$ se $36 > (12 - \log(k))/2$ ou $k < 8,75\times 10^{-27}$, note que, para a amostra em questão, temos um valor para $\lambda$ extremamente baixo, logo podemos rejeitar a hipótese de tempo de duração igual a 5 anos, optando pela alternativa de 7 anos de duração. Ou em outras palavras, os dados obtidos pela amostra mostram indícios de que a distribuição original da população não siga a proposta pela hipótese nula, e sim pela alternativa.
 
@@ -128,10 +107,8 @@ O lemma a seguir é muito útil para encontrar testes mais poderosos.
 
 -   **Lemma Neyman-Pearson:** seja $X_1,...,X_n$ uma amostra aleatória de uma distribuição com densidade $f(x;\theta)$, onde $\theta$ pode assumir os valores $\theta_1$ ou $\theta_0$ e 0 \< $\alpha$ \< 1. Considere $k*$ uma constante positiva e C\* um subconjunto do espaço de valores para $X_i$. Assim,
 
-```{r echo = F,fig.align = 'left',out.width = 240}
-knitr::include_graphics("img/lemmapeason1.png")
-#<img src="img/lemmapeason1.png" width="250"/>
-```
+<img src="img/lemmapeason1.png" width="250"/>
+
 
 e $\lambda$ \> k\* se $(x_1,...,x_n) \in \overline{C}*$. Onde $C*$ é a região de rejeição e $\overline{C}*$ seu complementar.
 
@@ -139,17 +116,13 @@ Então, considerando um teste de hipóteses simples, temos que o teste para essa
 
 Seja $X_1,...,X_n$ uma amostra aleatória da marca *A*, onde estamos interessados em saber se o motivo do baixo tempo de duração foi erro da fábrica ou não, para isso suponha que a amostra segue distribuição Bernoulli($\theta$), onde $X_i = 1$, foi erro da fábrica e $X_i = 0$ caso contrário. Seja o teste $H_0:\theta = \theta_0$ vs. $H_1: \theta = \theta_1$, $\theta_1 > \theta_0$, onde $\theta$ representa a proporção de blusas com baixo tempo de duração por erro da fábrica. Então
 
-```{r echo = F,fig.align = 'center',out.width = 210}
-knitr::include_graphics("img/neyman1.png")
-#<img src="img/neyman1.png" width="350"/>
-```
+<img src="img/neyman1.png" width="350"/>
+
 
 Rejeitamos $H_0$ para um $\lambda \leq k*$, note porém, que $\lambda$ varia em função da amostra $X_1,\dots,X_n$. Podendo considerar as outras informações como constantes, nos levando a rejeitar $H_0$ se $\sum X_i \geq k'$. Para compreender suponha $\theta_0 = 0.3$ e $\theta_1 = 0.5$ e uma amostra de tamanho 10.
 
-```{r echo = F,fig.align = 'center',out.width = 210}
-knitr::include_graphics("img/neyman12.png")
-#<img src="img/neyman1.png" width="350"/>
-```
+<img src="img/neyman1.png" width="350"/>
+
 
 Conforme incrementamos o valor do somatório, diminuimos o valor de $\lambda$, logo rejeitamos $H_0$ para um valor do somatório maior que uma constante $k'$, ou seja, rejeitamos a hipótese de que a proporção de blusas por erro da fabrica seja 0.3 e optamos pela proporção de 0.5 caso o número de blusas com defeito por culpa da fábricação seja relativamente alto.
 
@@ -169,10 +142,8 @@ Generalizaremo, agora, para os teste de hipóteses compostas. O método mais ger
 
 -   **Teste de Razão de Verossimilhança Generalizado**: suponha $L(\theta;X_1,...,X_n)$ a função de verossimilhança para a amostra $X_1,...,X_n$. O teste de razão de verossimilhança generalizada, denotado por $\lambda$, é definido como:
 
-```{r echo = F,fig.align = 'center',out.width = 200}
-knitr::include_graphics("img/trvg.png")
-#<img src="img/trvg.png" width="350"/>
-```
+<img src="img/trvg.png" width="350"/>
+
 
 Onde $\lambda$ se torna uma função da amostra definida no intervalo [0,1]. Assim como no Teste de Razão de Verossimilhança para hipóteses simples, rejeitamos a hipótese nula ($H_0$) se o valor de $\lambda$ for menor ou igual a uma constante $k^*$ definida no intervalo [0,1]. Quanto mais próximo de 1 for o valor de $\lambda$, mais difícil será rejeitar a hipótese nula, pois indica que o valor que maximiza a função de verossimilhança dentro do espaço paramétrico da hipótese nula está se aproximando do valor que maximiza para o espaço paramétrico total.
 
@@ -187,16 +158,12 @@ para todo $\theta \in \Theta - \Theta_0$ e para qualquer teste $\delta$ de taman
 
 Suponha o exemplo onde testamos $H_0: \theta \geq 0.5$ versus $H_1: \theta < 0.5$, sendo $\theta$ a proporção de blusas com pouco tempo de duração por culpa da fábrica, e que possuimos uma amostra $X_1,...X_{30} \sim Bernoulli(\theta)$, onde $\sum_{i=1}^{30}X_i = 12$. Primeiro, faremos de forma geral onde $0.5 = \theta_0$ e depois substituiremos pelos valores propostos. Então, o valor que maximímiza a função de verossimilhança no espaço paramétrico geral e sob $H_0$ seguem da forma:
 
-```{r echo = F,fig.align = 'center',out.width = 370}
-knitr::include_graphics("img/exemploump1.png")
-#<img src="img/trvg.png" width="350"/>
-```
+<img src="img/trvg.png" width="350"/>
+
 
 Assim,
-```{r echo = F,fig.align = 'center',out.width = 350}
-knitr::include_graphics("img/exemploump2.png")
-#<img src="img/trvg.png" width="350"/>
-```
+<img src="img/trvg.png" width="350"/>
+
 
 Substituindo pelos valores propostos no problema então obtemos que $\lambda = 2.33\times 10^{-9}$, pois $0.5 \geq \sum X_i/n$, rejeitando $H_0$ para um $2.33\times 10^{-9} < k$. É possível notar, porém, que $\lambda$ é função de $\sum X_i$ e que $lambda$ é descrescente conforme incrementado o valor de $\sum X_i$, logo rejeitamos $H_0$ para um $\sum X_i > k'$. Como explicado então, o teste UMP para o exemplo é aquele em que $\sup\limits_{0.5 \leq \theta \leq 1}P(\sum X_i > k'\mid \theta) = \alpha$ ou  $P(\sum X_i > k'\mid \theta \geq 0.5) = \alpha$
 
